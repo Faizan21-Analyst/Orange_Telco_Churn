@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 650px;
+            margin: 50px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .prediction {
+            font-size: 20px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: #f3f4f6;
+        }
+        .probability {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        h3 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+        ul {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            list-style-type: none;
+        }
+        ul li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background: #edf2f7;
+            border-radius: 6px;
+        }
+        .back-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #43cea2;
+            color: white;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #36b493;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Prediction Result</h2>
+    
+    <div class="prediction"><b>Prediction:</b> {{ prediction }}</div>
+    <div class="probability"><b>Churn Probability:</b> {{ probability }}%</div>
+
+    <div class="section">
+        <h3>Reasons:</h3>
+        <ul>
+            {% for reason in reasons %}
+                <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Recommendations:</h3>
+        <ul>
+            {% for rec in recommendations %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/" class="back-btn">🔙 Back to Prediction</a>
+</div>
+</body>
+</html>
